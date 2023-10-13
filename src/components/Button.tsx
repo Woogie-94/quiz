@@ -30,8 +30,6 @@ const BaseButton = styled.button<{ disabled?: boolean }>`
   align-items: center;
   width: 100%;
   padding: 16px;
-  font-size: 14px;
-  color: #fff;
   background-color: #5a41f5;
   border-radius: 8px;
   transition: 0.2s;
@@ -56,6 +54,8 @@ const BaseButton = styled.button<{ disabled?: boolean }>`
 
 const Label = styled.p<{ $isVisible: boolean }>`
   opacity: ${({ $isVisible }) => ($isVisible ? "1" : "0")};
+  font-size: 16px;
+  color: #fff;
 `;
 
 const spinAnimation = keyframes`
