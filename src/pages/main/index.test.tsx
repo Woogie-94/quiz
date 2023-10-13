@@ -60,7 +60,7 @@ const prepare = ({ isError }: { isError: boolean }) => {
 };
 
 describe("Main Page", async () => {
-  it("onStartClick 이벤트를 실행해 요청이 성공하면 '/question'으로 이동한다.", async () => {
+  it("onStartClick 이벤트를 실행해 요청이 성공하면 '/questions'로 이동한다.", async () => {
     const { onStartClick } = prepare({ isError: false });
 
     act(onStartClick);
