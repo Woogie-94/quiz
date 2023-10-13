@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
 import useQuestionQurey from "../../../quries/useQuestionQurey";
 
-const DEFAULT_QUESTION_AMOUNT = 10000;
+const DEFAULT_QUESTION_AMOUNT = 10;
 const DEFAULT_QUESTION_TYPE = "multiple";
 
 export type QuizInteractorResult = ReturnType<typeof useQuizInteractor>;
