@@ -2,7 +2,6 @@ import styled from "styled-components";
 import AppLayout from "../../../components/AppLayout";
 import { useQuizPresenterContext } from "../presenter/Quiz.presenter";
 import Button from "../../../components/Button";
-import { Link } from "react-router-dom";
 
 const Page = () => {
   const { onStartClick } = useQuizPresenterContext();
@@ -13,7 +12,6 @@ const Page = () => {
         <TitleWrapper>
           <Title>퀴즈 사이트에 오신걸 환영합니다.</Title>
         </TitleWrapper>
-        <Link to="/questions" data-testid="link" />
         <Button data-testid="button" label="퀴즈 풀기" onClick={onStartClick} />
       </Wrapper>
     </AppLayout>
