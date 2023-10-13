@@ -1,12 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import QuizPage from "../pages/quiz";
 import { PATH_ROOT } from "../constants/path";
+import Main from "../pages/main";
 
 const router = createBrowserRouter([
   {
     path: PATH_ROOT,
-    element: <QuizPage />,
+    element: <Main />,
   },
 ]);
 
