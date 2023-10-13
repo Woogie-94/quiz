@@ -1,5 +1,5 @@
 const Question = () => {
-  return <>123</>;
+  return <div data-testid="question-page"></div>;
 };
 
 export default Question;
