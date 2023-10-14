@@ -36,7 +36,7 @@ const BaseButton = styled.button<{ disabled?: boolean }>`
 
   &:disabled {
     color: #3b3c42;
-    background-color: #f4f4f7;
+    background-color: #e0e0e0;
   }
 
   &:hover {
