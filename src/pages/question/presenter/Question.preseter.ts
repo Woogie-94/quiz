@@ -1,6 +1,8 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { Location, useLocation, useNavigate } from "react-router-dom";
 import Question from "../../../models/Question";
+import { useQuestionInteractorContext } from "../interactor/Question.interactor";
+import { QUESTION_LAST_STEP } from "../../../constants/question";
 
 interface RouteState {
   questions: Question[];
@@ -8,14 +10,16 @@ interface RouteState {
 
 export type QuestionPresenterResult = ReturnType<typeof useQuestionPresenter>;
 export const useQuestionPresenter = () => {
+  const { questionResults, refetch, addResult } = useQuestionInteractorContext();
+
   const navigation = useNavigate();
   const { state, search } = useLocation() as Location<RouteState>;
 
-  const step = Number(new URLSearchParams(search).get("step"));
-  const isLastStep = step >= 10;
-  const question = state.questions[step - 1];
-
   const [selectedAnswer, setSelectedAnswer] = useState("");
+
+  const step = Number(new URLSearchParams(search).get("step"));
+  const isLastStep = step >= QUESTION_LAST_STEP;
+  const question = state.questions[step - 1];
 
   const correctAnswerIndex = selectedAnswer && question.answers.indexOf(question.correctAnswer);
   const incorrectAnswerIndex = question.answers.indexOf(selectedAnswer);
@@ -26,13 +30,27 @@ export const useQuestionPresenter = () => {
       return;
     }
 
+    addResult({ ...question, selectedAnswer: answer });
     setSelectedAnswer(answer);
   };
 
   const onNextQeustionClick = () => {
+    refetch();
     setSelectedAnswer("");
-    navigation(`?step=${step + 1}`, { state: { questions: state.questions } });
+
+    if (isLastStep) {
+      navigation("/result");
+    } else {
+      navigation(`?step=${step + 1}`, { state: { questions: state.questions } });
+    }
   };
+
+  useEffect(() => {
+    const result = questionResults?.[step - 1];
+    if (result) {
+      setSelectedAnswer(result.selectedAnswer);
+    }
+  }, [questionResults, step]);
 
   return {
     question,

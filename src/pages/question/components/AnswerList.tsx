@@ -8,6 +8,7 @@ const AnswerList = () => {
     <Wrapper>
       {question.answers.map((item, index) => (
         <Answer
+          key={item}
           $isCorrect={correctAnswerIndex === index}
           $isIncorrect={incorrectAnswerIndex === index}
           onClick={() => onAnwserClick(item)}
