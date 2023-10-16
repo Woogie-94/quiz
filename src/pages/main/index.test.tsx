@@ -13,6 +13,7 @@ import QuestionComponent from "../question";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastProvider } from "../../contexts/toastContext";
 import Toast from "../../components/Toast";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const useFakeInteractor = (data: IQuestionResponse): QuizInteractorResult => {
   return {
@@ -24,31 +25,34 @@ const useFakeInteractor = (data: IQuestionResponse): QuizInteractorResult => {
         });
       });
     },
+    resetQuestionResults: () => {},
   };
 };
 
 const Wrapper = ({ children, isError }: { children: ReactElement; isError: boolean }) => {
   return (
     <BrowserRouter>
-      <ToastProvider>
-        <InteractorProvider
-          interactor={useFakeInteractor({
-            response_code: isError ? QUESTION_RESPONCE_CODE__NO_RESULT : QUESTION_RESPONCE_CODE__SUCCESS,
-            results: mockResult,
-          })}
-        >
-          <PresenterProvider>
-            {children}
-            <Page />
-          </PresenterProvider>
-        </InteractorProvider>
-        <Toast />
-      </ToastProvider>
+      <QueryClientProvider client={new QueryClient()}>
+        <ToastProvider>
+          <InteractorProvider
+            interactor={useFakeInteractor({
+              response_code: isError ? QUESTION_RESPONCE_CODE__NO_RESULT : QUESTION_RESPONCE_CODE__SUCCESS,
+              results: mockResult,
+            })}
+          >
+            <PresenterProvider>
+              {children}
+              <Page />
+            </PresenterProvider>
+          </InteractorProvider>
+          <Toast />
+        </ToastProvider>
 
-      <Routes>
-        <Route path={"/"} element={<></>} />
-        <Route path={"/questions"} element={<QuestionComponent />} />
-      </Routes>
+        <Routes>
+          <Route path={"/"} element={<></>} />
+          <Route path={"/questions"} element={<QuestionComponent />} />
+        </Routes>
+      </QueryClientProvider>
     </BrowserRouter>
   );
 };

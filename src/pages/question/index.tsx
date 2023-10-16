@@ -7,11 +7,13 @@ const Question = () => {
   const questionInteractor = useQuestionInteractor();
 
   return (
-    <InteractorProvider interactor={questionInteractor}>
-      <PresenterProvider>
-        <Page />
-      </PresenterProvider>
-    </InteractorProvider>
+    <div data-testid="question-page">
+      <InteractorProvider interactor={questionInteractor}>
+        <PresenterProvider>
+          <Page />
+        </PresenterProvider>
+      </InteractorProvider>
+    </div>
   );
 };
 
