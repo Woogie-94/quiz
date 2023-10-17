@@ -34,13 +34,15 @@ class Question {
     this.question = data.question;
     this.correctAnswer = data.correct_answer;
     this.incorrectAnswers = data.incorrect_answers;
-    this.answers = this.shuffle(data.incorrect_answers, data.correct_answer);
+    this.answers = Question.shuffle(data.incorrect_answers, data.correct_answer);
   }
 
-  private shuffle(array: string[], item: string) {
-    const randomIndex = Math.floor(Math.random() * (array.length + 1));
+  static shuffle(array: string[], item: string) {
+    const arr = [...array];
+    const randomIndex = Math.floor(Math.random() * (arr.length + 1));
+    arr.splice(randomIndex, 0, item);
 
-    return [...array].splice(randomIndex, 0, item);
+    return arr;
   }
 }
 
