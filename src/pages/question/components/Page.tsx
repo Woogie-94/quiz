@@ -16,7 +16,7 @@ const Page = () => {
           <AnswerList />
         </div>
         <Button
-          label={isLastStep ? "결과 보기" : "다음 문제"}
+          label={isLastStep ? "결과 보기" : "다음 문항"}
           disabled={isNextButtonDisabled}
           onClick={onNextQeustionClick}
         />
