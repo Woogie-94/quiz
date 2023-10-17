@@ -1,6 +1,6 @@
 import axios from "axios";
 import Question, { IQuestionResponse, QuestionType } from "../models/Question";
-import { QUESTION_RESULTS_LOCALHOST_KEY } from "../constants/question";
+import { QUESTION_RESULTS_LOCALSTORAGE_KEY } from "../constants/question";
 
 export interface QuestionRequestParams {
   amount: number;
@@ -14,7 +14,7 @@ export interface QuestionResultParams extends Question {
   selectedAnswer: string;
 }
 export const getQuestionResults = async () => {
-  const value = await localStorage.getItem(QUESTION_RESULTS_LOCALHOST_KEY);
+  const value = await localStorage.getItem(QUESTION_RESULTS_LOCALSTORAGE_KEY);
 
   if (value) {
     return JSON.parse(value) as QuestionResultParams[];
@@ -24,10 +24,10 @@ export const addQuestionResults = async (params: QuestionResultParams) => {
   const questionResult = await getQuestionResults();
 
   localStorage.setItem(
-    QUESTION_RESULTS_LOCALHOST_KEY,
+    QUESTION_RESULTS_LOCALSTORAGE_KEY,
     JSON.stringify(questionResult ? [...questionResult, params] : [params]),
   );
 };
 export const resetQuestionResults = async () => {
-  await localStorage.removeItem(QUESTION_RESULTS_LOCALHOST_KEY);
+  await localStorage.removeItem(QUESTION_RESULTS_LOCALSTORAGE_KEY);
 };

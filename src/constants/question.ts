@@ -13,4 +13,4 @@ export const QUESTION_RESPONCE_CODES = [
 ] as const;
 
 export const QUESTION_LAST_STEP = 10;
-export const QUESTION_RESULTS_LOCALHOST_KEY = "questionResults";
+export const QUESTION_RESULTS_LOCALSTORAGE_KEY = "questionResults";
