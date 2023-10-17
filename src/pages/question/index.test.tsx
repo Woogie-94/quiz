@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { QuestionInteractorResult } from "./interactor/Question.interactor";
 import InteractorProvider from "./interactor";
 import PresenterProvider from "./presenter";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { PATH_QUESTION } from "../../constants/path";
 import "@testing-library/jest-dom";
@@ -85,9 +85,10 @@ describe("Question Page - Component", () => {
       const selectedAnswer = screen.getByText(question.answers[0]);
       fireEvent.click(selectedAnswer);
 
-      const results = getQuestionResults();
-
-      expect(results?.[0].selectedAnswer).toBe(selectedAnswer.textContent);
+      await waitFor(async () => {
+        const results = await getQuestionResults();
+        return expect(results?.[0].selectedAnswer).toBe(selectedAnswer.textContent);
+      });
     });
 
     it("답안을 클릭하면 정답과 오답에 색상이 추가되어 구분할 수 있다.", () => {

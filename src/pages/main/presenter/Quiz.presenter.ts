@@ -29,11 +29,7 @@ export const useQuizPresenter = () => {
   };
 };
 
-const initialQuizPresenter: QuizPresenterResult = {
-  onStartClick: () => {},
-};
-
-export const QuizPresenterContext = createContext(initialQuizPresenter);
+export const QuizPresenterContext = createContext({} as QuizPresenterResult);
 export const useQuizPresenterContext = () => {
   return useContext(QuizPresenterContext);
 };
