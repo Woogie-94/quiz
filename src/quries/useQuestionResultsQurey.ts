@@ -8,7 +8,7 @@ const fetch = async () => {
 };
 
 const useQuestionResultsQuery = () => {
-  return useQuery(QUERY_KEY.results, fetch);
+  return useQuery(QUERY_KEY.questionResults, fetch);
 };
 
 export default useQuestionResultsQuery;

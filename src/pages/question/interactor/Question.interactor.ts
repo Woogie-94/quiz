@@ -9,9 +9,8 @@ export const useQuestionInteractor = () => {
   const { mutate: addResult } = useAddQuestionResultMutation();
   const { mutate: resetResult } = useResetQuestionResultMutation();
 
-  const onRefetch = async () => {
-    const { data } = await refetch();
-    return data;
+  const onRefetch = () => {
+    refetch();
   };
 
   return { questionResults: data, refetch: onRefetch, addResult, resetResult };

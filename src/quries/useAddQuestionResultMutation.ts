@@ -1,7 +1,8 @@
 import { useMutation } from "react-query";
-import { QuestionResultParams, addQuestionResults } from "../services/quiz";
+import { addQuestionResults } from "../services/quiz";
+import { QuestionResult } from "../models/Result";
 
-const reqeust = async (params: QuestionResultParams) => {
+const reqeust = async (params: QuestionResult) => {
   await addQuestionResults(params);
 };
 

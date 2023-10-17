@@ -1,6 +1,7 @@
 import axios from "axios";
-import Question, { IQuestionResponse, QuestionType } from "../models/Question";
 import { QUESTION_RESULTS_LOCALSTORAGE_KEY } from "../constants/question";
+import { IQuestionResponse, QuestionType } from "../models/Question";
+import { QuestionResult } from "../models/Result";
 
 export interface QuestionRequestParams {
   amount: number;
@@ -10,17 +11,12 @@ export const getQuestions = ({ amount, type }: QuestionRequestParams) => {
   return axios.get<IQuestionResponse>("https://opentdb.com/api.php", { params: { amount, type } });
 };
 
-export interface QuestionResultParams extends Question {
-  selectedAnswer: string;
-}
 export const getQuestionResults = async () => {
   const value = await localStorage.getItem(QUESTION_RESULTS_LOCALSTORAGE_KEY);
 
-  if (value) {
-    return JSON.parse(value) as QuestionResultParams[];
-  }
+  return (value ? JSON.parse(value) : []) as QuestionResult[];
 };
-export const addQuestionResults = async (params: QuestionResultParams) => {
+export const addQuestionResults = async (params: QuestionResult) => {
   const questionResult = await getQuestionResults();
 
   localStorage.setItem(

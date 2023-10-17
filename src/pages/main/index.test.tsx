@@ -108,7 +108,7 @@ describe("Main", () => {
 
     await waitFor(async () => {
       const results = await getQuestionResults();
-      return expect(results).toBeUndefined();
+      return expect(results.length).toBe(0);
     });
   });
 });
