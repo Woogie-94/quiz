@@ -21,12 +21,7 @@ export const useQuizInteractor = () => {
   };
 };
 
-const initialQuizInteractor: QuizInteractorResult = {
-  fetchQuestion: () => new Promise(() => {}),
-  resetQuestionResults: () => new Promise(() => {}),
-};
-
-export const QuizInteractorContext = createContext(initialQuizInteractor);
+export const QuizInteractorContext = createContext({} as QuizInteractorResult);
 export const useQuizInteractorContext = () => {
   return useContext(QuizInteractorContext);
 };
