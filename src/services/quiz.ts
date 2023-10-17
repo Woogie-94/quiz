@@ -13,15 +13,15 @@ export const getQuestions = ({ amount, type }: QuestionRequestParams) => {
 export interface QuestionResultParams extends Question {
   selectedAnswer: string;
 }
-export const getQuestionResults = () => {
-  const value = localStorage.getItem(QUESTION_RESULTS_LOCALHOST_KEY);
+export const getQuestionResults = async () => {
+  const value = await localStorage.getItem(QUESTION_RESULTS_LOCALHOST_KEY);
 
   if (value) {
     return JSON.parse(value) as QuestionResultParams[];
   }
 };
-export const addQuestionResults = (params: QuestionResultParams) => {
-  const questionResult = getQuestionResults();
+export const addQuestionResults = async (params: QuestionResultParams) => {
+  const questionResult = await getQuestionResults();
 
   localStorage.setItem(
     QUESTION_RESULTS_LOCALHOST_KEY,
