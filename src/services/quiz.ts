@@ -1,5 +1,9 @@
 import axios from "axios";
-import { QUESTION_RESULTS_LOCALSTORAGE_KEY } from "../constants/question";
+import {
+  QUESTION_RESULTS_LOCALSTORAGE_KEY,
+  QUIZ_END_TIME_LOCALSTORAGE_KEY,
+  QUIZ_START_TIME_LOCALSTORAGE_KEY,
+} from "../constants/question";
 import { IQuestionResponse, QuestionType } from "../models/Question";
 import { QuestionResult } from "../models/Result";
 
@@ -26,4 +30,22 @@ export const addQuestionResults = async (params: QuestionResult) => {
 };
 export const resetQuestionResults = async () => {
   await localStorage.removeItem(QUESTION_RESULTS_LOCALSTORAGE_KEY);
+};
+
+export const getQuizStartTime = async () => {
+  const date = await localStorage.getItem(QUIZ_START_TIME_LOCALSTORAGE_KEY);
+
+  return date ? new Date(JSON.parse(date)) : new Date();
+};
+export const setQuizStartTime = () => {
+  localStorage.setItem(QUIZ_START_TIME_LOCALSTORAGE_KEY, JSON.stringify(new Date()));
+};
+
+export const getQuizEndTime = async () => {
+  const date = await localStorage.getItem(QUIZ_END_TIME_LOCALSTORAGE_KEY);
+
+  return date ? new Date(JSON.parse(date)) : new Date();
+};
+export const setQuizEndTime = () => {
+  localStorage.setItem(QUIZ_END_TIME_LOCALSTORAGE_KEY, JSON.stringify(new Date()));
 };

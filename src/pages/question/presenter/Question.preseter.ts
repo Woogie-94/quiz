@@ -3,6 +3,7 @@ import { Location, useLocation, useNavigate } from "react-router-dom";
 import Question from "../../../models/Question";
 import { useQuestionInteractorContext } from "../interactor/Question.interactor";
 import { QUESTION_LAST_STEP } from "../../../constants/question";
+import { setQuizEndTime } from "../../../services/quiz";
 
 interface RouteState {
   questions: Question[];
@@ -39,6 +40,7 @@ export const useQuestionPresenter = () => {
     setSelectedAnswer("");
 
     if (isLastStep) {
+      setQuizEndTime();
       navigation("/result");
     } else {
       navigation(`?step=${step + 1}`, { state: { questions: state.questions } });
