@@ -1,4 +1,4 @@
-import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import Question, { IQuestion, IQuestionResponse } from "../../models/Question";
 import { QuizInteractorResult } from "./interactor/Quiz.interactor";
@@ -65,7 +65,7 @@ describe("Main", () => {
       const rendered = render(<Wrapper isError />);
 
       const button = rendered.getByRole("button");
-      act(() => fireEvent.click(button));
+      fireEvent.click(button);
 
       await waitFor(() => expect(screen.getByText("요청이 실패했습니다. (code-1)")).toBeInTheDocument());
     });
@@ -74,7 +74,7 @@ describe("Main", () => {
       const rendered = render(<Wrapper />);
 
       const button = rendered.getByRole("button");
-      act(() => fireEvent.click(button));
+      fireEvent.click(button);
 
       await waitFor(() => expect(screen.getByTestId("question-page")).toBeInTheDocument());
     });
@@ -104,7 +104,7 @@ describe("Main", () => {
     });
 
     const button = rendered.getByRole("button");
-    act(() => fireEvent.click(button));
+    fireEvent.click(button);
 
     await waitFor(async () => {
       const results = await getQuestionResults();
