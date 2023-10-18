@@ -1,5 +1,6 @@
 import { PieChart, Pie, Cell, PieLabelRenderProps, ResponsiveContainer } from "recharts";
 import { useResultPresenterContext } from "../presenter/Result.presenter";
+import useWindowSize from "../../../hooks/useWindowSize";
 
 const COLORS = ["#00c896", "#f56666"];
 const RADIAN = Math.PI / 180;
@@ -18,6 +19,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, outerRadius, percent, index }
 
 const Chart = () => {
   const { result } = useResultPresenterContext();
+  const window = useWindowSize();
 
   const data = [
     { name: "정답", value: result?.correctCount },
@@ -30,8 +32,8 @@ const Chart = () => {
         <Pie
           data={data}
           dataKey="value"
-          innerRadius={60}
-          outerRadius={100}
+          innerRadius={window.width > 410 ? 60 : 40}
+          outerRadius={window.width > 410 ? 100 : 80}
           startAngle={-270}
           label={renderCustomizedLabel}
           isAnimationActive={false}
