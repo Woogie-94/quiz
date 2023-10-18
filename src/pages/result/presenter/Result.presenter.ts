@@ -1,8 +1,11 @@
 import { createContext, useContext } from "react";
+import { useResultInteractorContext } from "../interactor/Result.interactor";
 
 export type ResultPresenterResult = ReturnType<typeof useResultPresenter>;
 export const useResultPresenter = () => {
-  return {};
+  const { result } = useResultInteractorContext();
+
+  return { result };
 };
 
 export const ResultPresenterContext = createContext({} as ResultPresenterResult);
