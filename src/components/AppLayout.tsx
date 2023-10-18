@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 `;
 const Inner = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   max-width: 640px;
   padding: 48px 32px;
   background-color: #fff;
