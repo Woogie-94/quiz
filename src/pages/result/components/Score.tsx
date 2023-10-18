@@ -90,5 +90,5 @@ const CountBlock = styled.div<{ $isCorrect?: boolean }>`
   width: 16px;
   height: 16px;
   border-radius: 4px;
-  background-color: ${({ $isCorrect }) => ($isCorrect ? "#add8e6" : "#ff4d4d")};
+  background-color: ${({ $isCorrect }) => ($isCorrect ? "#00c896" : "#f56666")};
 `;

@@ -16,9 +16,9 @@ const IncorrectAnswerNote = () => {
               <TopWrapper>
                 <LeftWrapper>
                   {isCorrect ? (
-                    <Icons.IconCircle width={16} height={16} color="#add8e6" />
+                    <Icons.IconCircle width={16} height={16} color="#00c896" />
                   ) : (
-                    <Icons.IconClose width={16} height={16} color="#ff4d4d" />
+                    <Icons.IconClose width={16} height={16} color="#f56666" />
                   )}
                   <LabelWrapper>
                     <Label>{index + 1}번 문제</Label>

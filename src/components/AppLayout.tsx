@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 const Inner = styled.div`
   width: 100%;
   min-height: 100vh;
-  max-width: 640px;
+  max-width: 564px;
   padding: 48px 32px;
   background-color: #fff;
   box-shadow: 0px 0px 20px #00000020;

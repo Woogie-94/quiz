@@ -22,7 +22,7 @@ const QuestionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4px;
-  margin-bottom: 48px;
+  margin-bottom: 36px;
 `;
 const Question = styled.h1`
   font-weight: bold;
@@ -41,7 +41,7 @@ const Difficulty = styled.span<{ $difficulty: QuestionDifficulty }>`
   padding: 4px 8px;
   border-radius: 8px;
   background-color: ${({ $difficulty }) =>
-    $difficulty === "hard" ? "#ff4d4d" : $difficulty === "medium" ? "#03c75a" : "#4D4DFF"};
+    $difficulty === "hard" ? "#f56666" : $difficulty === "medium" ? "#00c896" : "#4D4DFF"};
   font-size: 16px;
   color: #fff;
 `;

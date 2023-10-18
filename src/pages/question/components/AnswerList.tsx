@@ -26,16 +26,23 @@ const Wrapper = styled.ul``;
 const Answer = styled.li<{ $isCorrect: boolean; $isIncorrect: boolean }>`
   cursor: pointer;
   width: 100%;
-  padding: 28px;
+  padding: 24px;
   text-align: center;
-  font-size: 32px;
+  font-size: 24px;
   border-radius: 8px;
   transition: 0.2s;
   background-color: ${({ $isCorrect, $isIncorrect }) =>
-    $isCorrect ? "#add8e6" : $isIncorrect ? "#ff4d4d" : "transparant"};
+    $isCorrect ? "#00e7ad" : $isIncorrect ? "#f56666" : "transparant"};
 
-  &:hover {
+  @media (hover: hover) {
+    &:hover {
+      background-color: ${({ $isCorrect, $isIncorrect }) =>
+        $isCorrect ? "#00e7ad" : $isIncorrect ? "#f56666" : "#00f4b791"};
+    }
+  }
+
+  &:active {
     background-color: ${({ $isCorrect, $isIncorrect }) =>
-      $isCorrect ? "#add8e6" : $isIncorrect ? "#ff4d4d" : "transparant"};
+      $isCorrect ? "#00e7ad" : $isIncorrect ? "#f56666" : "#00f4b791"};
   }
 `;

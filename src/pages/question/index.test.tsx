@@ -100,8 +100,8 @@ describe("Question Page - Component", () => {
 
       fireEvent.click(selectedAnswer);
 
-      expect(correctAnswer).toHaveStyle("backgroundColor: #add8e6");
-      expect(selectedAnswer).toHaveStyle("backgroundColor: #ff4d4d");
+      expect(correctAnswer).toHaveStyle("backgroundColor: #00e7ad");
+      expect(selectedAnswer).toHaveStyle("backgroundColor: #f56666");
     });
 
     it("선택한 답안은 변경할 수 없다.", () => {
@@ -113,7 +113,7 @@ describe("Question Page - Component", () => {
       const afterSelectedAnswer = screen.getByText(question.answers[1]);
       fireEvent.click(afterSelectedAnswer);
 
-      expect(afterSelectedAnswer).not.toHaveStyle("backgroundColor: #ff4d4d");
+      expect(afterSelectedAnswer).not.toHaveStyle("backgroundColor: #f56666");
     });
   });
 

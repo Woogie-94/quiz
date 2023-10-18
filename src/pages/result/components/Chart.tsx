@@ -1,7 +1,7 @@
-import { PieChart, Pie, Cell, PieLabelRenderProps } from "recharts";
+import { PieChart, Pie, Cell, PieLabelRenderProps, ResponsiveContainer } from "recharts";
 import { useResultPresenterContext } from "../presenter/Result.presenter";
 
-const COLORS = ["#add8e6", "#ff4d4d"];
+const COLORS = ["#00c896", "#f56666"];
 const RADIAN = Math.PI / 180;
 
 const renderCustomizedLabel = ({ cx, cy, midAngle, outerRadius, percent, index }: Required<PieLabelRenderProps>) => {
@@ -25,20 +25,23 @@ const Chart = () => {
   ];
 
   return (
-    <PieChart width={576} height={320}>
-      <Pie
-        data={data}
-        dataKey="value"
-        innerRadius={60}
-        outerRadius={100}
-        startAngle={-270}
-        label={renderCustomizedLabel}
-      >
-        {data.map((_, index) => (
-          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} style={{ outline: "none" }} />
-        ))}
-      </Pie>
-    </PieChart>
+    <ResponsiveContainer width="100%" height={320}>
+      <PieChart>
+        <Pie
+          data={data}
+          dataKey="value"
+          innerRadius={60}
+          outerRadius={100}
+          startAngle={-270}
+          label={renderCustomizedLabel}
+          isAnimationActive={false}
+        >
+          {data.map((_, index) => (
+            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} style={{ outline: "none" }} />
+          ))}
+        </Pie>
+      </PieChart>
+    </ResponsiveContainer>
   );
 };
 
