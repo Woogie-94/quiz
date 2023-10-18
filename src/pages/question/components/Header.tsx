@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useQuestionPresenterContext } from "../presenter/Question.preseter";
+import { useQuestionPresenterContext } from "../presenter/Question.presenter";
 import { QuestionDifficulty } from "../../../models/Question";
 
 const Header = () => {

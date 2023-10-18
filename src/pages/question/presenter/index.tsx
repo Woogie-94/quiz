@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { QuestionPresenterContext, useQuestionPresenter } from "./Question.preseter";
+import { QuestionPresenterContext, useQuestionPresenter } from "./Question.presenter";
 
 interface Props {
   children: ReactNode;

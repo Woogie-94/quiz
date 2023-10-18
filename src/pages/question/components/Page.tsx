@@ -3,10 +3,10 @@ import AppLayout from "../../../components/AppLayout";
 import Header from "./Header";
 import AnswerList from "./AnswerList";
 import Button from "../../../components/Button";
-import { useQuestionPresenterContext } from "../presenter/Question.preseter";
+import { useQuestionPresenterContext } from "../presenter/Question.presenter";
 
 const Page = () => {
-  const { isLastStep, isNextButtonDisabled, onNextQeustionClick } = useQuestionPresenterContext();
+  const { isLastStep, isNextButtonDisabled, onNextQuestionClick } = useQuestionPresenterContext();
 
   return (
     <AppLayout>
@@ -18,7 +18,7 @@ const Page = () => {
         <Button
           label={isLastStep ? "결과 보기" : "다음 문항"}
           disabled={isNextButtonDisabled}
-          onClick={onNextQeustionClick}
+          onClick={onNextQuestionClick}
         />
       </Wrapper>
     </AppLayout>

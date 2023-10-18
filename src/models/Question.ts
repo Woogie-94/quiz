@@ -1,9 +1,9 @@
-import { QUESTION_RESPONCE_CODES } from "../constants/question";
+import { QUESTION_RESPONSE_CODES } from "../constants/question";
 import { decodeHTMLEntities } from "../utils";
 
 export type QuestionType = "choice" | "multiple";
 export type QuestionDifficulty = "easy" | "medium" | "hard";
-export type QuestionResponseCode = (typeof QUESTION_RESPONCE_CODES)[number];
+export type QuestionResponseCode = (typeof QUESTION_RESPONSE_CODES)[number];
 
 export interface IQuestion {
   category: string;

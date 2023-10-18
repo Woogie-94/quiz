@@ -9,8 +9,8 @@ const fetch = async (params: QuestionRequestParams) => {
   return { questions: data.results.map(item => new Question(item)), responseCode: data.response_code };
 };
 
-const useQuestionQurey = (params: QuestionRequestParams) => {
+const useQuestionQuery = (params: QuestionRequestParams) => {
   return useQuery(QUERY_KEY.questions, () => fetch(params), { enabled: false });
 };
 
-export default useQuestionQurey;
+export default useQuestionQuery;

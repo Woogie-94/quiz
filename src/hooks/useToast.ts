@@ -3,7 +3,7 @@ import { useCallback } from "react";
 import { useToastContext, useToastDispatchContext } from "../contexts/toastContext";
 import { sleep } from "../utils";
 
-const DEFAILT_DURATION = 2000;
+const DEFAULT_DURATION = 2000;
 
 const useToast = () => {
   const toast = useToastContext();
@@ -19,7 +19,7 @@ const useToast = () => {
   );
 
   const show = useCallback(
-    ({ message, duration = DEFAILT_DURATION }: { message: string; duration?: number }) => {
+    ({ message, duration = DEFAULT_DURATION }: { message: string; duration?: number }) => {
       if (!(toast?.type === "remove")) {
         return;
       }

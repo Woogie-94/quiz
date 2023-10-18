@@ -26,7 +26,7 @@ export const useQuestionPresenter = () => {
   const incorrectAnswerIndex = question.answers.indexOf(selectedAnswer);
   const isNextButtonDisabled = !selectedAnswer;
 
-  const onAnwserClick = (answer: string) => {
+  const onAnswerClick = (answer: string) => {
     if (selectedAnswer) {
       return;
     }
@@ -35,7 +35,7 @@ export const useQuestionPresenter = () => {
     setSelectedAnswer(answer);
   };
 
-  const onNextQeustionClick = () => {
+  const onNextQuestionClick = () => {
     refetch();
     setSelectedAnswer("");
 
@@ -64,8 +64,8 @@ export const useQuestionPresenter = () => {
     isNextButtonDisabled,
     incorrectAnswerIndex,
     correctAnswerIndex,
-    onNextQeustionClick,
-    onAnwserClick,
+    onNextQuestionClick,
+    onAnswerClick,
   };
 };
 

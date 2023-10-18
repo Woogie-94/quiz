@@ -56,7 +56,7 @@ describe("Result Page", () => {
     });
   });
 
-  describe("IncrrectAnswerNote Component", () => {
+  describe("IncorrectAnswerNote Component", () => {
     it("문제 리스트가 렌더링 된다.", () => {
       const rendered = render(
         <Wrapper>

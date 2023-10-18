@@ -5,7 +5,7 @@ import { QuizInteractorResult } from "./interactor/Quiz.interactor";
 import InteractorProvider from "./interactor";
 import PresenterProvider from "./presenter";
 import Page from "./components/Page";
-import { QUESTION_RESPONCE_CODE__NO_RESULT, QUESTION_RESPONCE_CODE__SUCCESS } from "../../constants/question";
+import { QUESTION_RESPONSE_CODE__NO_RESULT, QUESTION_RESPONSE_CODE__SUCCESS } from "../../constants/question";
 import "@testing-library/jest-dom";
 import QuestionComponent from "../question";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -32,8 +32,8 @@ const Main = ({ isError }: { isError: boolean }) => {
   return (
     <InteractorProvider
       interactor={useFakeInteractor({
-        response_code: isError ? QUESTION_RESPONCE_CODE__NO_RESULT : QUESTION_RESPONCE_CODE__SUCCESS,
-        results: qustionsMockData,
+        response_code: isError ? QUESTION_RESPONSE_CODE__NO_RESULT : QUESTION_RESPONSE_CODE__SUCCESS,
+        results: questionsMockData,
       })}
     >
       <PresenterProvider>
@@ -81,7 +81,7 @@ describe("Main", () => {
 
     it("'/questions'에서 문항 데이터가 렌더링 된다.", async () => {
       const rendered = render(<Wrapper />);
-      const question = qustionsMockData[0];
+      const question = questionsMockData[0];
 
       await waitFor(() => {
         expect(rendered.getByText(question.question)).toBeInTheDocument();
@@ -99,8 +99,8 @@ describe("Main", () => {
     window.history.pushState({}, "", "/");
     const rendered = render(<Wrapper />);
     addQuestionResults({
-      ...new Question(qustionsMockData[0]),
-      selectedAnswer: qustionsMockData[0].correct_answer,
+      ...new Question(questionsMockData[0]),
+      selectedAnswer: questionsMockData[0].correct_answer,
     });
 
     const button = rendered.getByRole("button");
@@ -113,7 +113,7 @@ describe("Main", () => {
   });
 });
 
-const qustionsMockData: IQuestion[] = [
+const questionsMockData: IQuestion[] = [
   {
     category: "Sports",
     type: "multiple",

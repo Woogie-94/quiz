@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react";
 import { getQuizEndTime, getQuizStartTime } from "../../../services/quiz";
-import useQuizResultQuery from "../../../quries/useQuizResultQuery";
+import useQuizResultQuery from "../../../queries/useQuizResultQuery";
 
 export type ResultInteractorResult = ReturnType<typeof useResultInteractor>;
 export const useResultInteractor = () => {

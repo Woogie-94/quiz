@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { useQuestionPresenterContext } from "../presenter/Question.preseter";
+import { useQuestionPresenterContext } from "../presenter/Question.presenter";
 
 const AnswerList = () => {
-  const { question, correctAnswerIndex, incorrectAnswerIndex, onAnwserClick } = useQuestionPresenterContext();
+  const { question, correctAnswerIndex, incorrectAnswerIndex, onAnswerClick } = useQuestionPresenterContext();
 
   return (
     <Wrapper>
@@ -11,7 +11,7 @@ const AnswerList = () => {
           key={item}
           $isCorrect={correctAnswerIndex === index}
           $isIncorrect={incorrectAnswerIndex === index}
-          onClick={() => onAnwserClick(item)}
+          onClick={() => onAnswerClick(item)}
         >
           {item}
         </Answer>
@@ -32,7 +32,7 @@ const Answer = styled.li<{ $isCorrect: boolean; $isIncorrect: boolean }>`
   border-radius: 8px;
   transition: 0.2s;
   background-color: ${({ $isCorrect, $isIncorrect }) =>
-    $isCorrect ? "#00e7ad" : $isIncorrect ? "#f56666" : "transparant"};
+    $isCorrect ? "#00e7ad" : $isIncorrect ? "#f56666" : "transparent"};
 
   @media (hover: hover) {
     &:hover {

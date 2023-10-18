@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
-import useQuestionResultsQuery from "../../../quries/useQuestionResultsQurey";
-import useAddQuestionResultMutation from "../../../quries/useAddQuestionResultMutation";
-import useResetQuestionResultMutation from "../../../quries/useResetQuestionResultMutation";
+import useQuestionResultsQuery from "../../../queries/useQuestionResultsQuery";
+import useAddQuestionResultMutation from "../../../queries/useAddQuestionResultMutation";
+import useResetQuestionResultMutation from "../../../queries/useResetQuestionResultMutation";
 
 export type QuestionInteractorResult = ReturnType<typeof useQuestionInteractor>;
 export const useQuestionInteractor = () => {
