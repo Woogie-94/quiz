@@ -52,6 +52,10 @@ export const useQuestionPresenter = () => {
     if (result) {
       setSelectedAnswer(result.selectedAnswer);
     }
+
+    return () => {
+      setSelectedAnswer("");
+    };
   }, [questionResults, step]);
 
   return {
