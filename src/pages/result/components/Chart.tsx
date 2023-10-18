@@ -25,7 +25,7 @@ const Chart = () => {
   ];
 
   return (
-    <PieChart width={576} height={300}>
+    <PieChart width={576} height={400}>
       <Pie
         data={data}
         dataKey="value"

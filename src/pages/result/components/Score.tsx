@@ -42,7 +42,6 @@ const Wrapper = styled.div`
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   padding: 24px 16px;
-  margin-top: 28px;
 `;
 const TopWrapper = styled.div`
   display: flex;
