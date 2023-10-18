@@ -31,8 +31,8 @@ class QuizResult {
     const seconds = Math.floor((ms % (1000 * 60)) / 1000);
 
     let time = "";
-    if (hours) time += `${hours}시`;
-    if (minutes) time += `${minutes}분`;
+    if (hours) time += `${hours}시 `;
+    if (minutes) time += `${minutes}분 `;
     time += `${seconds}초`;
 
     return time;
