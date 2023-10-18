@@ -8,6 +8,7 @@ import Score from "./components/Score";
 import { render } from "@testing-library/react";
 import TotalTime from "./components/TotalTime";
 import "@testing-library/jest-dom";
+import IncorrectAnswerNote from "./components/IncorrectAnswerNote";
 
 const useFakeInteractor = (data: QuestionResult[]): ResultInteractorResult => {
   const result = new QuizResult(data);
@@ -52,6 +53,24 @@ describe("Result Page", () => {
       );
 
       expect(rendered.getByText("2시 4분 13초")).toBeInTheDocument();
+    });
+  });
+
+  describe("IncrrectAnswerNote Component", () => {
+    it("문제 리스트가 렌더링 된다.", () => {
+      const rendered = render(
+        <Wrapper>
+          <IncorrectAnswerNote />
+        </Wrapper>,
+      );
+
+      resultsMockData.forEach(question => {
+        expect(rendered.getByText(question.question));
+        expect(rendered.getByText(`정답 : ${question.correctAnswer}`));
+        if (question.correctAnswer !== question.selectedAnswer) {
+          expect(rendered.getByText(`제출한 답 : ${question.selectedAnswer}`));
+        }
+      });
     });
   });
 });
