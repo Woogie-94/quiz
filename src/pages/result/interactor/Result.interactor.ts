@@ -6,12 +6,10 @@ export type ResultInteractorResult = ReturnType<typeof useResultInteractor>;
 export const useResultInteractor = () => {
   const { data } = useQuizResultQuery();
 
-  (async () => {
-    const startTime = await getQuizStartTime();
-    const endTime = await getQuizEndTime();
+  const startTime = getQuizStartTime();
+  const endTime = getQuizEndTime();
 
-    data?.setTotalElapsedTime(startTime, endTime);
-  })();
+  data?.setTotalElapsedTime(startTime, endTime);
 
   return { result: data };
 };

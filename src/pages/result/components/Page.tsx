@@ -1,6 +1,7 @@
 import AppLayout from "../../../components/AppLayout";
 import Chart from "./Chart";
 import Score from "./Score";
+import TotalTime from "./TotalTime";
 
 const Page = () => {
   return (
@@ -8,6 +9,7 @@ const Page = () => {
       <>
         <Chart />
         <Score />
+        <TotalTime />
       </>
     </AppLayout>
   );

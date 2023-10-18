@@ -32,8 +32,8 @@ export const resetQuestionResults = async () => {
   await localStorage.removeItem(QUESTION_RESULTS_LOCALSTORAGE_KEY);
 };
 
-export const getQuizStartTime = async () => {
-  const date = await localStorage.getItem(QUIZ_START_TIME_LOCALSTORAGE_KEY);
+export const getQuizStartTime = () => {
+  const date = localStorage.getItem(QUIZ_START_TIME_LOCALSTORAGE_KEY);
 
   return date ? new Date(JSON.parse(date)) : new Date();
 };
@@ -41,8 +41,8 @@ export const setQuizStartTime = () => {
   localStorage.setItem(QUIZ_START_TIME_LOCALSTORAGE_KEY, JSON.stringify(new Date()));
 };
 
-export const getQuizEndTime = async () => {
-  const date = await localStorage.getItem(QUIZ_END_TIME_LOCALSTORAGE_KEY);
+export const getQuizEndTime = () => {
+  const date = localStorage.getItem(QUIZ_END_TIME_LOCALSTORAGE_KEY);
 
   return date ? new Date(JSON.parse(date)) : new Date();
 };
