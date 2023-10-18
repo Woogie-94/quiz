@@ -1,14 +1,15 @@
 import { useQuery } from "react-query";
 import QUERY_KEY from "./queryKeys";
 import { getQuestionResults } from "../services/quiz";
+import QuizResult from "../models/Result";
 
 const fetch = async () => {
   const data = await getQuestionResults();
-  return data;
+  return new QuizResult(data);
 };
 
-const useQuestionResultsQuery = () => {
-  return useQuery(QUERY_KEY.questionResults, fetch);
+const useQuizResultQuery = () => {
+  return useQuery(QUERY_KEY.quizResult, fetch);
 };
 
-export default useQuestionResultsQuery;
+export default useQuizResultQuery;

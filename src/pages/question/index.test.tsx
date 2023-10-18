@@ -6,19 +6,20 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { PATH_QUESTION } from "../../constants/path";
 import "@testing-library/jest-dom";
-import { QuestionResultParams, addQuestionResults, getQuestionResults } from "../../services/quiz";
+import { addQuestionResults, getQuestionResults } from "../../services/quiz";
 import { ReactElement } from "react";
 import Header from "./components/Header";
 import AnswerList from "./components/AnswerList";
 import Question from "../../models/Question";
 import Page from "./components/Page";
 import { QUESTION_LAST_STEP } from "../../constants/question";
+import { QuestionResult } from "../../models/Result";
 
 const useFakeInteractor = (): QuestionInteractorResult => {
   return {
     questionResults: [],
-    refetch: async () => [],
-    addResult: async (params: QuestionResultParams) => {
+    refetch: () => {},
+    addResult: async (params: QuestionResult) => {
       addQuestionResults(params);
     },
     resetResult: async () => {},
