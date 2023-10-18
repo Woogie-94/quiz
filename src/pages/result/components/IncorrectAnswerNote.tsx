@@ -12,7 +12,7 @@ const IncorrectAnswerNote = () => {
         {result?.questions.map((question, index) => {
           const isCorrect = question.correctAnswer === question.selectedAnswer;
           return (
-            <ItemWrapper>
+            <ItemWrapper key={question.correctAnswer}>
               <TopWrapper>
                 <LeftWrapper>
                   {isCorrect ? (
@@ -76,6 +76,7 @@ const LeftWrapper = styled.div`
 `;
 const LabelWrapper = styled.div`
   display: flex;
+  flex-wrap: wrap;
   gap: 4px;
 `;
 const Label = styled.div`
