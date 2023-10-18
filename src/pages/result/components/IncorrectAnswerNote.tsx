@@ -22,6 +22,7 @@ const IncorrectAnswerNote = () => {
                   )}
                   <LabelWrapper>
                     <Label>{index + 1}번 문제</Label>
+                    <Label>{question.category}</Label>
                     <Label>{question.difficulty}</Label>
                   </LabelWrapper>
                 </LeftWrapper>
