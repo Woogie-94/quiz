@@ -1,10 +1,14 @@
 import AppLayout from "../../../components/AppLayout";
 import Chart from "./Chart";
+import Score from "./Score";
 
 const Page = () => {
   return (
     <AppLayout>
-      <Chart />
+      <>
+        <Chart />
+        <Score />
+      </>
     </AppLayout>
   );
 };
