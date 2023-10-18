@@ -30,7 +30,7 @@ const BaseButton = styled.button<{ disabled?: boolean }>`
   align-items: center;
   width: 100%;
   padding: 16px;
-  background-color: #5a41f5;
+  background-color: #00c896;
   border-radius: 8px;
   transition: 0.2s;
 
@@ -41,13 +41,13 @@ const BaseButton = styled.button<{ disabled?: boolean }>`
 
   &:hover {
     &:not(:disabled) {
-      background-color: #513bdd;
+      background-color: #00bd8e;
     }
   }
 
   &:active {
     &:not(:disabled) {
-      background-color: #513bdd;
+      background-color: #00bd8e;
     }
   }
 `;
