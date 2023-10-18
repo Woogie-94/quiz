@@ -1,4 +1,5 @@
 import { QUESTION_RESPONCE_CODES } from "../constants/question";
+import { decodeHTMLEntities } from "../utils";
 
 export type QuestionType = "choice" | "multiple";
 export type QuestionDifficulty = "easy" | "medium" | "hard";
@@ -31,10 +32,10 @@ class Question {
     this.category = data.category;
     this.type = data.type;
     this.difficulty = data.difficulty;
-    this.question = data.question;
-    this.correctAnswer = data.correct_answer;
-    this.incorrectAnswers = data.incorrect_answers;
-    this.answers = Question.shuffle(data.incorrect_answers, data.correct_answer);
+    this.question = decodeHTMLEntities(data.question);
+    this.correctAnswer = decodeHTMLEntities(data.correct_answer);
+    this.incorrectAnswers = data.incorrect_answers.map(decodeHTMLEntities);
+    this.answers = Question.shuffle(this.incorrectAnswers, this.correctAnswer);
   }
 
   static shuffle(array: string[], item: string) {
