@@ -25,12 +25,12 @@ const Chart = () => {
   ];
 
   return (
-    <PieChart width={576} height={400}>
+    <PieChart width={576} height={320}>
       <Pie
         data={data}
         dataKey="value"
-        innerRadius={100}
-        outerRadius={140}
+        innerRadius={60}
+        outerRadius={100}
         startAngle={-270}
         label={renderCustomizedLabel}
       >
