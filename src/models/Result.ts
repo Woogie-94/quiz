@@ -25,23 +25,22 @@ class QuizResult {
     return data.filter(item => item.selectedAnswer !== item.correctAnswer).length;
   }
 
-  private formattedTime(date: Date) {
-    const normalizedTime = Intl.DateTimeFormat("default", {
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: false,
-      timeZone: "UTC",
-    }).format(date);
+  private formattedTime(ms: number) {
+    const hours = Math.floor(ms / (1000 * 60 * 60));
+    const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((ms % (1000 * 60)) / 1000);
 
-    const [hour, minute, second] = normalizedTime.split(":").map(item => (+item >= 24 ? "00" : item));
+    let time = "";
+    if (hours) time += `${hours}시`;
+    if (minutes) time += `${minutes}분`;
+    time += `${seconds}초`;
 
-    return `${hour}:${minute}:${second}`;
+    return time;
   }
 
   setTotalElapsedTime(start: Date, end: Date) {
-    const time = end.getTime() - start.getTime();
-    this.totalElapsedTime = this.formattedTime(new Date(time));
+    const diffMs = end.getTime() - start.getTime();
+    this.totalElapsedTime = this.formattedTime(diffMs);
   }
 }
 
