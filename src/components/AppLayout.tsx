@@ -1,10 +1,11 @@
 import { ReactElement } from "react";
 import styled from "styled-components";
+import { DESKTOP_MOBILE_VIEW_WRAPPER_ID, SIZES } from "../constants";
 
 const AppLayout = ({ children }: { children: ReactElement }) => {
   return (
     <Wrapper>
-      <Inner>{children}</Inner>
+      <Inner id={DESKTOP_MOBILE_VIEW_WRAPPER_ID}>{children}</Inner>
     </Wrapper>
   );
 };
@@ -24,7 +25,7 @@ const Inner = styled.div`
   background-color: #fff;
   box-shadow: 0px 0px 20px #00000020;
 
-  @media (max-width: 576px) {
+  @media (max-width: ${SIZES.mobile}px) {
     padding: 24px 16px;
   }
 `;
