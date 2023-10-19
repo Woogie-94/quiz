@@ -4,7 +4,7 @@ import { useQuizPresenterContext } from "../presenter/Quiz.presenter";
 import Button from "../../../components/Button";
 
 const Page = () => {
-  const { onStartClick } = useQuizPresenterContext();
+  const { isLoading, onStartClick } = useQuizPresenterContext();
 
   return (
     <AppLayout>
@@ -12,7 +12,7 @@ const Page = () => {
         <TitleWrapper>
           <Title>퀴즈 사이트에 오신걸 환영합니다.</Title>
         </TitleWrapper>
-        <Button data-testid="button" label="퀴즈 풀기" onClick={onStartClick} />
+        <Button data-testid="button" label="퀴즈 풀기" onClick={onStartClick} loading={isLoading} />
       </Wrapper>
     </AppLayout>
   );

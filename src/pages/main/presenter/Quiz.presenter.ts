@@ -8,7 +8,7 @@ import { setQuizStartTime } from "../../../services/quiz";
 
 export type QuizPresenterResult = ReturnType<typeof useQuizPresenter>;
 export const useQuizPresenter = () => {
-  const { fetchQuestion, resetQuestionResults } = useQuizInteractorContext();
+  const { isLoading, fetchQuestion, resetQuestionResults } = useQuizInteractorContext();
   const navigation = useNavigate();
 
   const { show } = useToast();
@@ -27,6 +27,7 @@ export const useQuizPresenter = () => {
   };
 
   return {
+    isLoading,
     onStartClick,
   };
 };
