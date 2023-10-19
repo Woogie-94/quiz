@@ -16,7 +16,7 @@ export const useQuizInteractor = () => {
   };
 
   return {
-    isLoading: questionQuery.isLoading,
+    isLoading: questionQuery.isFetching,
     fetchQuestion: onRefetch,
     resetQuestionResults,
   };
