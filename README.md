@@ -11,7 +11,7 @@ yarn test
 [배포 링크](http://quiz-classting.s3-website-ap-northeast-1.amazonaws.com/)
 
 ## 아키텍처
-![image](https://github.com/Woogie-94/quiz/assets/59603529/5de32118-ec1f-4b95-8514-f172e888b867)
+![img](https://github.com/Woogie-94/quiz/assets/59603529/e4a5263d-6e30-46a5-814e-c3459f864e20)
 
 과제의 아키텍처는 viper 패턴을 참고해 router를 제외한 패턴으로 재구성하여 적용했습니다. 아래는 각 구성에 대한 설명입니다.
 
