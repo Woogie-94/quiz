@@ -16,6 +16,7 @@ import { addQuestionResults, getQuestionResults, resetQuestionResults } from "..
 
 const useFakeInteractor = (data: IQuestionResponse): QuizInteractorResult => {
   return {
+    isLoading: false,
     fetchQuestion: () => {
       return new Promise(resolve => {
         return resolve({
