@@ -6,9 +6,9 @@ interface Props {
 }
 
 const PresenterProvider = ({ children }: Props) => {
-  const quizPresenter = useQuestionPresenter();
+  const questionPresenter = useQuestionPresenter();
 
-  return <QuestionPresenterContext.Provider value={quizPresenter}>{children}</QuestionPresenterContext.Provider>;
+  return <QuestionPresenterContext.Provider value={questionPresenter}>{children}</QuestionPresenterContext.Provider>;
 };
 
 export default PresenterProvider;
