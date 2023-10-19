@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, MouseEvent } from "react";
 import styled, { keyframes } from "styled-components";
 
 type ButtonHtmlAttributes = ButtonHTMLAttributes<HTMLButtonElement>;
@@ -7,9 +7,17 @@ interface Props extends Omit<ButtonHtmlAttributes, "type"> {
   loading?: boolean;
 }
 
-const Button = ({ label, loading, ...defaultProps }: Props) => {
+const Button = ({ label, loading, onClick, ...defaultProps }: Props) => {
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+    if (loading) {
+      return;
+    }
+
+    onClick?.(e);
+  };
+
   return (
-    <BaseButton {...defaultProps}>
+    <BaseButton onClick={handleClick} {...defaultProps}>
       {loading && (
         <LoadingSpinner>
           <div />
