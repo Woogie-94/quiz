@@ -214,5 +214,5 @@ describe("Todo", () => {
 문제 정답 기록은 localStorage를 이용했습니다. rest api 형식으로 사용하고 싶어 msw와 json-server를 고려했지만 사용자를 구분할 수 없어 여러명이 동시에 퀴즈를 진행한다면 문제가 생기기 때문에 localStorage로 정했습니다.
 대신 localStorage를 api로 생각하고 query를 이용해 과제를 진행했습니다. 이 점 참고 부탁드립니다.
 
-## Git Action
+## Github Action
 action을 통해 S3 배포와 테스트를 자동화 했습니다.
